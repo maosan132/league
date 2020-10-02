@@ -1,12 +1,12 @@
 <h1 class="danger">Numbers of players in our league: <%= @players.count %></h1>
 
 <table>
-<thead>
-  <tr>
-    <td>First Name</td>
-    <td>Last Name</td>
-        <td>Actions</td>
-  </tr>
+  <thead>
+    <tr>
+      <td>First Name</td>
+      <td>Last Name</td>
+      <td>Actions</td>
+    </tr>
 
   <tbody>
     <% @players.each do |p| %>
@@ -15,17 +15,21 @@
       <td><%=p.first_name %></td>
       <td><%=p.last_name %></td>
       <td>
-        <a href="/players/<%= p.id %>">Show</a>
+        <%= link_to 'Show Page', player_path(p.id) %>
+        <!--<a href="/players/<%= p.id %>">Show</a>-->
         <span> | </span>
-        <a href="/players/<%= p.id %>/edit">Edit profile</a>
+        <%= link_to 'Edit profile', player_edit_path(p.id) %>
+        <!--<a href="/players/<%= p.id %>/edit">Edit profile</a>-->
         <span> | </span>
-        <a href="/players/<%= p.id %>" data-method="delete" data-confirm="Are U sure?">Delete profile</a>
+        <%= link_to 'Delete profile', player_path(p.id), data: { method: :delete, confirm: "r u sure?"} %>
+        <!--<a href="/players/<%= p.id %>" data-method="delete" data-confirm="Are U sure?">Delete profile</a>-->
       </td>
-    <% end %>
+      <% end %>
   </tbody>
 
-</thead>
+  </thead>
 
 </table>
 
-<a href="/players/new">New Player</a>
+<!--<a href="/players/new">New Player</a>-->
+<%= link_to 'New Player', players_new_path%>
