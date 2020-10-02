@@ -11,10 +11,10 @@ class PlayersController < ApplicationController
     # player.first_name = params[:player][:first_name]
     # player.last_name = params[:player][:last_name]
     if player.save
-      redirect_to '/players'
+      redirect_to :root
     else
       flash[:errors] = player.errors.full_messages
-      redirect_to '/players/new'
+      redirect_to :back
     end
   end
 
@@ -41,17 +41,18 @@ class PlayersController < ApplicationController
     player = Player.find(params[:id])
       if player.update(player_params)
         flash[:success] = "Object was successfully updated"
-        redirect_to '/players'
+        redirect_to :root
       else
         flash[:error] = player.errors.full_messages
-        redirect_to '/players/#{player.id}/edit'
+        #redirect_to '/players/#{player.id}/edit'
+        redirect_to :back
       end
   end
 
   def destroy
     player = Player.find(params[:id])
     player.destroy
-    redirect_to '/players'
+    redirect_to :root
   end
   
 

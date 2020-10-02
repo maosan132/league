@@ -1,3 +1,4 @@
+<% content_for(:title, "Edit #{@player.first_name}'s profile") %>
 <h1>Edit <%= @player.first_name %>'s info</h1>
 <% if flash[:errors]%>
   <% flash[:errors].each do |e| %>
@@ -19,4 +20,4 @@
 <input type="submit" name="" value="Update">
 </form> 
 <br>
-<a href="/players">Go back</a>
+<%= link_to 'Home page', root_path %>
