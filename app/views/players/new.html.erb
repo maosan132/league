@@ -1,12 +1,9 @@
 
 <% content_for(:title, 'New profile')%>
 <h1>New Player form</h1>
-<% if flash[:errors]%>
-  <% flash[:errors].each do |e| %>
-    <p><%= e %> </p>
-  <% end %>
-<% end %>
-<form action="/players" method="post">
+<%= render partial: 'players/form' %>
+
+<!--<form action="/players" method="post">
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
 <p>
@@ -18,5 +15,6 @@
   <input type="text" name="player[last_name]">
 </p>
 <input type="submit" name="" value="Create">
-</form> 
+</form> -->
+<br>
 <%= link_to 'Home page', root_path %>

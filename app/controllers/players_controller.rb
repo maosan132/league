@@ -3,7 +3,8 @@ class PlayersController < ApplicationController
     @players = Player.all
   end
 
-  def  new
+  def new
+    @player = Player.new
   end
   
   def create 
@@ -14,7 +15,7 @@ class PlayersController < ApplicationController
       redirect_to :root
     else
       flash[:errors] = player.errors.full_messages
-      redirect_to :back
+      redirect_back(fallback_location:"/")
     end
   end
 
@@ -45,7 +46,7 @@ class PlayersController < ApplicationController
       else
         flash[:error] = player.errors.full_messages
         #redirect_to '/players/#{player.id}/edit'
-        redirect_to :back
+        redirect_back(fallback_location:"/")
       end
   end
 

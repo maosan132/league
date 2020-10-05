@@ -1,10 +1,9 @@
 <% content_for(:title, "Edit #{@player.first_name}'s profile") %>
 <h1>Edit <%= @player.first_name %>'s info</h1>
-<% if flash[:errors]%>
-  <% flash[:errors].each do |e| %>
-    <p><%= e %> </p>
-  <% end %>
-<% end %>
+<%= render partial: 'players/form' %>
+
+<!--
+
 <form action="/players/<%= @player.id %>" method="post">
 <input type="hidden" name="_method" value="patch">
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -18,6 +17,6 @@
   <input type="text" name="player[last_name]" Value=" <%= @player.last_name %>">
 </p>
 <input type="submit" name="" value="Update">
-</form> 
+</form> -->
 <br>
 <%= link_to 'Home page', root_path %>
