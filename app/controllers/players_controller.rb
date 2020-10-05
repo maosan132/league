@@ -46,6 +46,7 @@ class PlayersController < ApplicationController
       else
         flash[:error] = player.errors.full_messages
         #redirect_to '/players/#{player.id}/edit'
+        #redirect_to :back
         redirect_back(fallback_location:"/")
       end
   end
