@@ -1,6 +1,7 @@
 <% content_for(:title, 'Players home') %>
-<h1 class="danger">Numbers of players in our league: <%= @players.count %></h1>
-
+<!--<h1 class="danger">Numbers of players in our league: <%= @players.count %></h1>-->
+<!--<h1>Listing <%= @players.count %> Players</h1>-->
+<h1>Listing <%= pluralize(@players.length, "player" )%></h1>
 <table>
   <thead>
     <tr>
